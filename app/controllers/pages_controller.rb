@@ -9,17 +9,22 @@ class PagesController < ApplicationController
     res = Net::HTTP.get_response(uri)
     res_hash = JSON.parse(res.body)
     if res.code == '200'
-      new_hash = {}
-      res_hash['features'].each do |feature|
-        postal_code = feature['context'][0]['text']
-        unless new_hash.keys.include?(postal_code)
-          new_hash[postal_code] = []
-        end
-        new_hash[postal_code] << feature['text']
-      end
+      new_hash = process_features(res_hash)
       render json: new_hash
     else
       render json: res_hash
     end
+  end
+
+  private
+
+  def process_features(res_hash)
+    new_hash = {}
+    res_hash['features'].each do |feature|
+      postal_code = feature['context'][0]['text']
+      new_hash[postal_code] = [] unless new_hash.keys.include?(postal_code)
+      new_hash[postal_code] << feature['text']
+    end
+    new_hash
   end
 end
