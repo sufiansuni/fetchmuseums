@@ -12,7 +12,8 @@ class PagesController < ApplicationController
       new_hash = process_features(res_hash)
       render json: new_hash
     else
-      render json: res_hash
+      # render json: res_hash
+      redirect_to root_path
     end
   end
 
