@@ -1,24 +1,34 @@
-# README
+# Fetch Museums
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Fetch Museums is a simple rails app that will take in a user's input of geo-coordinates and return a JSON response of its nearby museums via Mapbox Search API.
 
-Things you may want to cover:
+## Deployment
+**Step 1**:  
+Run bundle install to ensure that the ruby gems required for this project is available  
+```sh
+bundle install
+```
 
-* Ruby version
+**Step 2**:  
+Create a .env file at the root of the project folder  
 
-* System dependencies
+**Step 3**:  
+Login / Create a MapBox account and retrieve an API key 
 
-* Configuration
+**Step 4**:  
+Add in an entry for your Mapbox API key in the /env file created at Step 2 as follows
+```sh
+MAPBOX_API_KEY=YourMapBoxAPIkey
+```
 
-* Database creation
+**Step 5**:  
+Run your rails serrver with the follwing  
+```sh
+rails s
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Testing
+Run the following in your terminal  
+```sh
+rails test test/controllers/pages_controller_test.rb
+```
