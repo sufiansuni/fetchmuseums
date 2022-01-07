@@ -17,12 +17,12 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   test 'post route blank request' do
     post root_path,
          params: { latitude: '', longitude: '' }
-    assert_redirected_to root_path
+    assert_response 422
   end
 
   test 'post route bad request (non-number)' do
     post root_path,
          params: { latitude: 'asd', longitude: 'asd' }
-    assert_redirected_to root_path
+    assert_response 422
   end
 end
