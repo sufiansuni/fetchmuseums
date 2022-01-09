@@ -22,7 +22,7 @@ MAPBOX_API_KEY=YourMapBoxAPIkey
 ```
 
 **Step 5**:  
-Run your rails serrver with the follwing  
+Run your rails server with the following  
 ```sh
 rails s
 ```
@@ -32,3 +32,7 @@ Run the following in your terminal
 ```sh
 rails test test/controllers/pages_controller_test.rb
 ```
+
+## Personal Reflection
+I had a good revision on fetching / calling an api in Ruby and handling the JSON response accordingly.  
+This was also my first testing I've done in Rails. I've yet to implement integraton tests and I'm looking forward to it.
